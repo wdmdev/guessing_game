@@ -2,7 +2,7 @@
 My small repo for keeping track of my journey into the world of [`Rust`](https://www.rust-lang.org/).
 
 ## Projects
-The projects in this repo will mainly be based on the chapters from [`The Rust Book`](https://doc.rust-lang.org/stable/book/) and ['The Burn Book'](https://burn.dev/book).
+The projects in this repo will mainly be based on the chapters from [`The Rust Book`](https://doc.rust-lang.org/stable/book/) and [`The Burn Book`](https://burn.dev/book).
 
 My goal with this repo is to go through the following process: 
 1. Learn the fundamentals of Rust.
