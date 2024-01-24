@@ -9,4 +9,4 @@ My goal with this repo is to go through the following process:
 2. Learn the fundamentals of the Rust framework [`Burn`](https://github.com/Tracel-AI/burn).
 3. Implement a model training using Burn.
 4. Implement a model inference API using some Rust framework.
-    * E.g. using [`Actix`](https://actix.rs/) or ['Rocket'](https://rocket.rs/).
+    * E.g. using [`Actix`](https://actix.rs/) or [`Rocket`](https://rocket.rs/).
