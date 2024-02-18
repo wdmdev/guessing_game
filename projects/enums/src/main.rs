@@ -11,4 +11,10 @@ fn main() {
     println!("Hello, world!");
     println!("My IP V4: {:?}", ipv4);
     println!("My IP V6: {:?}", ipv6);
+
+    //Using the Option enum for Some or None valued variables
+    let some_number = Some(5); //Rust infers the i32 type because of value
+    let some_char = Some('a'); //Ruset infers the char type
+    let absent_number: Option<i32> = None; //We have to declare the type because the value is None
+
 }
