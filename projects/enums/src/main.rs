@@ -3,9 +3,15 @@ enum IpAddr {
     V6(String),
 }
 
+#[derive(Debug)]
+struct Location {
+    lat: f32,
+    long: f32,
+}
+
 enum Device {
     Laptop(IpAddr),
-    Mobile(IpAddr),
+    Mobile(IpAddr, Location),
     SmartWatch,
     VRHeadset
 }
@@ -35,18 +41,23 @@ fn main() {
     println!("Let's look at some devices!");
 
     let d1 = Device::Laptop(IpAddr::V6(String::from("FE80:CD00:0000:0CDE:1257:0000:211E:729C")));
-    let d2 = Device::Mobile(IpAddr::V4(0,0,0,0));
+    let d2 = Device::Mobile(IpAddr::V4(0,0,0,0), Location{lat:59.3293, long:18.0686});
     let d3 = Device::SmartWatch;
     let d4 = Device::VRHeadset;
 
-    check_device(d1);
-    check_device(d2);
-    check_device(d3);
-    check_device(d4);
+    check_device(&d1);
+    check_device(&d2);
+    check_device(&d3);
+    check_device(&d4);
+
+    find_my_phone(d1);
+    find_my_phone(d2);
+    find_my_phone(d3);
+    find_my_phone(d4);
 
 }
 
-fn check_device(device: Device) {
+fn check_device(device: &Device) {
     match device {
         Device::Laptop(ip) => {
             println!("On the workstation!");
@@ -55,7 +66,7 @@ fn check_device(device: Device) {
                 IpAddr::V6(id) => println!("You have a new and long ip: {}", id),
             }
         },
-        Device::Mobile(ip) => {
+        Device::Mobile(ip, _) => {
             println!("You're going mobile!");
             match ip {
                 IpAddr::V4(i1, i2, i3, i4) => println!("Your ip is oooold: {}.{}.{}.{}", i1, i2, i3, i4),
@@ -64,5 +75,14 @@ fn check_device(device: Device) {
         }
         Device::SmartWatch => println!("Keep that pulse going!"),
         Device::VRHeadset => println!("Welcome to the matrix!"),
+    }
+}
+
+fn find_my_phone(device: Device) {
+    if let Device::Mobile(_, location) = device {
+        println!("Your phone location is: {:?}", location);
+    }
+    else {
+        println!("Your device is not a phone!");
     }
 }
